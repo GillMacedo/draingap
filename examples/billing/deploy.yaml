@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: billing
+spec:
+  selector:
+    matchLabels:
+      app: billing
+  template:
+    metadata:
+      labels:
+        app: billing
+    spec:
+      terminationGracePeriodSeconds: 20
+      containers:
+        - name: billing
+          image: registry.example.com/billing:0.9.2
+          command: ["/bin/sh", "-c", "/app/migrate up && /app/billing -addr=:8080"]
+---

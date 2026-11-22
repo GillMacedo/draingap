@@ -1,0 +1,33 @@
+# Source: api/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+---
+# Source: api/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: api
+          image: registry.example.com/api:1.0.0
+          lifecycle:
+            preStop:
+              sleep:
+                seconds: 5
+---

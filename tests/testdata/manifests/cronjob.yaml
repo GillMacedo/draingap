@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: api
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 30
+          containers:
+            - name: api
+              image: registry.example.com/api:1.0.0
+              lifecycle:
+                preStop:
+                  sleep:
+                    seconds: 5
+---

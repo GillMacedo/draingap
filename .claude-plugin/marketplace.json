@@ -1,0 +1,14 @@
+{
+  "name": "draingap-marketplace",
+  "description": "Marketplace for draingap, which checks that a Go HTTP service drains its requests before Kubernetes kills it.",
+  "owner": {
+    "name": "Giulliano Macedo"
+  },
+  "plugins": [
+    {
+      "name": "draingap",
+      "source": "./plugin",
+      "description": "Find why a Go service drops requests during Kubernetes deploys: SIGTERM not handled, Shutdown with a canceled context, main exiting while Shutdown drains, and preStop plus Shutdown deadlines longer than terminationGracePeriodSeconds."
+    }
+  ]
+}

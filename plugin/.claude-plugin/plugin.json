@@ -1,0 +1,13 @@
+{
+  "name": "draingap",
+  "version": "0.1.0",
+  "description": "Check that a Go HTTP service drains requests before Kubernetes kills it: SIGTERM handling, a Shutdown that waits, a main that doesn't exit early, and a preStop delay plus Shutdown deadline that fit terminationGracePeriodSeconds. Reads the Go source and rendered manifests; doesn't run the program.",
+  "author": {
+    "name": "Giulliano Macedo",
+    "url": "https://github.com/GillMacedo"
+  },
+  "homepage": "https://github.com/GillMacedo/draingap",
+  "repository": "https://github.com/GillMacedo/draingap",
+  "license": "MIT",
+  "keywords": ["go", "golang", "kubernetes", "graceful-shutdown", "sigterm", "prestop", "termination-grace-period", "net-http", "static-analysis", "backend"]
+}

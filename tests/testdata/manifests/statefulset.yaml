@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: api
+spec:
+  serviceName: api
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: api
+          image: registry.example.com/api:1.0.0
+          lifecycle:
+            preStop:
+              sleep:
+                seconds: 5
+---
